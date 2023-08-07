@@ -58,10 +58,7 @@ public class ImageRepository {
             List<Image> imageList = new ArrayList<>();
             Connection connection = ConnectionDB.getMyConnection();
             PreparedStatement preparedStatement =
-                    connection.prepareStatement("SELECT id_image, name_image FROM \"Image\" WHERE " +
-                            "status = 'ACTIVE' " +
-                            "AND id_user =? " +
-                            "AND name_image LIKE ?");
+                    connection.prepareStatement("SELECT id_image, name_image FROM \"Image\" WHERE status = 'ACTIVE' AND id_user =? AND name_image LIKE ?");
             preparedStatement.setLong(1, idUser);
             preparedStatement.setString(2, name + "%");
             ResultSet res = preparedStatement.executeQuery();
@@ -78,16 +75,12 @@ public class ImageRepository {
         }
     }
 
-    public List<Image> searchBySize(long idUser, long size, Timestamp date) {
+    public List<Image> searchBySizeAndDate(long idUser, long size, Timestamp date) {
         try {
             List<Image> imageList = new ArrayList<>();
             Connection connection = ConnectionDB.getMyConnection();
             PreparedStatement preparedStatement =
-                    connection.prepareStatement("SELECT id_image, name_image FROM \"Image\" WHERE " +
-                            "status = 'ACTIVE' " +
-                            "AND id_user =? " +
-                            "AND size_image > ? " +
-                            "AND date_save::date = ?");
+                    connection.prepareStatement("SELECT id_image, name_image FROM \"Image\" WHERE status = 'ACTIVE' AND id_user =? AND size_image > ? AND date_save::date = ?");
             preparedStatement.setLong(1, idUser);
             preparedStatement.setLong(2, size);
             preparedStatement.setTimestamp(3, date);

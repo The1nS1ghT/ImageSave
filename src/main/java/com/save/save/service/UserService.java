@@ -38,7 +38,7 @@ public class UserService {
         return userRepository.insertUser(user);
     }
 
-    public String auth(String email, String password)  {
+    public String auth(String email, String password) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(email, password));
 
@@ -47,7 +47,7 @@ public class UserService {
         return jwtService.generateToken(user);
     }
 
-    public List<User> getAllUsers(){
+    public List<User> getAllUsers() {
         //User user = new User();
         return userRepository.getUsers();
     }
@@ -57,8 +57,4 @@ public class UserService {
         return userRepository.findById(user, idUser);
     }
 
-//    public User getImagesByUser(long id) {
-//        User user = new User();
-//        return userRepository.getImages(user, id);
-//    }
 }

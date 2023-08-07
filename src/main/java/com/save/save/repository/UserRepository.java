@@ -97,26 +97,4 @@ public class UserRepository {
             throw new RuntimeException(e);
         }
     }
-
-//    public User getImages(User user, long id) {
-//        try {
-//            Connection connection = ConnectionDB.getMyConnection();
-//            PreparedStatement preparedStatement =
-//                    connection.prepareStatement("SELECT id_user, name, email FROM \"User\" WHERE id_user =?");
-//            preparedStatement.setLong(1, id);
-//            ResultSet res = preparedStatement.executeQuery();
-//            connection.close();
-//
-//            if (res.next()) {
-//                user.setId(res.getLong("id_user"));
-//                user.setName(res.getString("name"));
-//                user.setEmail(res.getString("email"));
-//                return user;
-//            }
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//        return null;
-//
-//    }
 }

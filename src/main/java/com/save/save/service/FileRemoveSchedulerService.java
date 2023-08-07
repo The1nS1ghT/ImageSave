@@ -16,7 +16,7 @@ import java.sql.SQLException;
 @EnableScheduling
 public class FileRemoveSchedulerService {
     @Scheduled(cron = "0 0 3 * * *")
-    public void RemoveImage(){
+    public void RemoveImage() {
         try {
             Connection connection = ConnectionDB.getMyConnection();
             PreparedStatement preparedStatement =

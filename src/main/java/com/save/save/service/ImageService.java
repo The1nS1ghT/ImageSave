@@ -51,11 +51,6 @@ public class ImageService {
     }
 
     public List<Image> searchBySize(long idUser, long size, LocalDate date) {
-        return imageRepository.searchBySize(idUser, size, Timestamp.valueOf(date.atStartOfDay()));
+        return imageRepository.searchBySizeAndDate(idUser, size, Timestamp.valueOf(date.atStartOfDay()));
     }
-
-//    public Image getImages(long idUser) {
-//        Image image = new Image();
-//        return imageRepository.getAllImage(image, idUser);
-//    }
 }

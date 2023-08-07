@@ -18,7 +18,8 @@ public class FileStorageService {
     public FileStorageService(Config config) {
         root = Paths.get(new File("D:\\Projects\\ImageSave\\src\\main\\resources\\img").getAbsolutePath());
     }
-    public String save(MultipartFile file){
+
+    public String save(MultipartFile file) {
         try {
             String fileName = UUID.randomUUID() + getFileExtensionWithDot(file.getOriginalFilename()).orElse("");
             String dirName = fileName.substring(0, 2);
@@ -29,6 +30,7 @@ public class FileStorageService {
             throw new RuntimeException(e);
         }
     }
+
     private Optional<String> getFileExtensionWithDot(String filename) {
         return Optional.ofNullable(filename)
                 .filter(f -> f.contains("."))

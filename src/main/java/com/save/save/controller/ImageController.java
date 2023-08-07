@@ -33,8 +33,4 @@ public class ImageController {
         model.addAttribute("images", imageService.searchBySize(idUser, size, date));
         return "searchSizeRes";
     }
-//    @GetMapping("/images")
-//    public String getAllImages(Model model){
-//        model.addAttribute(imageService.getImages());
-//    }
 }

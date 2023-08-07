@@ -21,6 +21,7 @@ public class AuthController {
     public String home() {
         return "home";
     }
+
     @GetMapping("/register")
     public String showRegisterForm(Model model) {
         return "regist";
