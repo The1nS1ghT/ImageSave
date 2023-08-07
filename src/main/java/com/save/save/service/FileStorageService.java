@@ -16,7 +16,7 @@ public class FileStorageService {
     private final Path root;
 
     public FileStorageService(Config config) {
-        root = Paths.get(new File("D:\\Projects\\Save\\src\\main\\resources\\img").getAbsolutePath());
+        root = Paths.get(new File("D:\\Projects\\ImageSave\\src\\main\\resources\\img").getAbsolutePath());
     }
     public String save(MultipartFile file){
         try {
