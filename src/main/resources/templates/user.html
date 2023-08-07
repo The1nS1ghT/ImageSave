@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<p th:text="${user.getName()}">123</p>
+<div th:each="image: ${images}">
+    <p th:text="${image.getName()}">na</p>
+</div>
+<form method="POST" th:action="@{/user/{id}/new(id=${user.getId()})}" enctype="multipart/form-data">
+    <input name="file" type="file" required>
+    <button type="submit">Загрузить</button>
+</form>
+<form method="POST" th:action="@{/user/{id}/search/name(id=${user.getId()})}">
+    <input name="name" type="text" placeholder="Введите имя файла">
+    <button type="submit">Найти</button>
+</form>
+
+<form method="POST" th:action="@{/user/{id}/search/size(id=${user.getId()})}">
+    <input name="size" type="text" placeholder="Введите размер файла">
+    <input name="date" type="date">
+    <button type="submit">Найти</button>
+</form>
+</body>
+</html>
